@@ -5,7 +5,8 @@ import os
 app = Flask(__name__)
 
 # Pega o token do ambiente
-TOKEN = os.getenv("GH_TOKEN")
+# Certifique-se que na Vercel a Key seja exatamente "GH_TOKEN"
+TOKEN = os.getenv("GH_TOKEN_30min")
 HEADERS = {
     "Authorization": f"Bearer {TOKEN}",
     "Accept": "application/vnd.github+json"
@@ -27,7 +28,8 @@ def home():
 def trigger_workflows():
     # Loop que executa a lógica UMA VEZ por chamada
     for wf in WORKFLOWS:
-        url = f"https://api.github.com/repos/Murilosantana7/{wf['repo']}/actions/workflows/{wf['workflow']}/dispatches"
+        # ALTERAÇÃO: Atualizado de Murilosantana7 para joaopavanelo-lang
+        url = f"https://api.github.com/repos/joaopavanelo-lang/{wf['repo']}/actions/workflows/{wf['workflow']}/dispatches"
         data = {"ref": "main"}
         try:
             res = requests.post(url, headers=HEADERS, json=data)
