@@ -15,7 +15,7 @@ HEADERS = {
 # Lista de workflows a serem acionados
 WORKFLOWS = [
     {"repo": "contagem_piso_out_sp5", "workflow": "piso_exp.yaml"},
-     {"repo": "FIFO_INBOUND_SP5", "workflow": "fifo_in_sp5.yaml"},
+    # {"repo": "FIFO_INBOUND_SP5", "workflow": "fifo_in_sp5.yaml"},
     {"repo": "Analise_PisovsGradeExp", "workflow": "analise_piso.yaml"},
 ]
 
